@@ -7,7 +7,7 @@ int main() {
     // primeira carta
 
     char nome[50], estado[50], codigo[50], cidade[50];
-    int populacao, turismo;
+    unsigned int populacao, turismo;
     float tamanho, pib;
 
     printf("Você está começando a jogar Super Trunfo!\n Inicie nos informando seu nome:\n");
@@ -76,15 +76,27 @@ int main() {
     float pib_per_capta = pib / populacao;
     float pib_per_capta2 = pib2 / populacao2;
 
+    //desafio 3 - mestre
+
+    float poder_total = (populacao + turismo + pib + densidade + pib_per_capta) / 5;
+    float poder_total2 = (populacao2 + turismo2 + pib2 + densidade2 + pib_per_capta2) / 5;
+
+    //cálculo do vencedor
+
+    int resultado = (int) poder_total > poder_total2;
+
     // impressão das cartas
 
     printf("Agora eu vou mostrar os dados das cartas que você montou, %s!\n", nome);
 
     // carta 1
-    printf("Carta 1:\nEstado: %s\nCódigo: %s\nNome da Cidade: %s\nPopulação: %d\nÁrea: %.2f km²\nPIB: %.2f\nPontos Turísticos: %d\nDensidade Populacional: %f\nPIB per Capta: %f\n", estado, codigo, cidade, populacao, tamanho, pib, turismo, densidade, pib_per_capta);
+    printf("Carta 1:\nEstado: %s\nCódigo: %s\nNome da Cidade: %s\nPopulação: %d\nÁrea: %.2f km²\nPIB: %.2f\nPontos Turísticos: %d\nDensidade Populacional: %f\nPIB per Capta: %f\n\n\nPoder Total: %f", estado, codigo, cidade, populacao, tamanho, pib, turismo, densidade, pib_per_capta, poder_total);
 
     // carta 2
-    printf("Carta 2:\nEstado: %s\nCódigo: %s\nNome da Cidade: %s\nPopulação: %d\nÁrea: %.2f km²\nPIB: %.2f\nPontos Turísticos: %d\nDensidade Populacional: %f\nPIB per Capta: %f\n", estado2, codigo2, cidade2, populacao2, tamanho2, pib2, turismo2, densidade2, pib_per_capta2);
+    printf("Carta 2:\nEstado: %s\nCódigo: %s\nNome da Cidade: %s\nPopulação: %d\nÁrea: %.2f km²\nPIB: %.2f\nPontos Turísticos: %d\nDensidade Populacional: %f\nPIB per Capta: %f\n\n\nPoder Total: %f\n", estado2, codigo2, cidade2, populacao2, tamanho2, pib2, turismo2, densidade2, pib_per_capta2, poder_total2);
+
+    //resultado
+    printf("O resultado é: %d", resultado);
 
     return 0;
 }
