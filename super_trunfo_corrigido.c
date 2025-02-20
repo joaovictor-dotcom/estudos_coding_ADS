@@ -81,10 +81,6 @@ int main() {
     float poder_total = (populacao + turismo + pib + densidade + pib_per_capta) / 5;
     float poder_total2 = (populacao2 + turismo2 + pib2 + densidade2 + pib_per_capta2) / 5;
 
-    //cálculo do vencedor
-
-    int resultado = (int) poder_total > poder_total2;
-
     // impressão das cartas
 
     printf("Agora eu vou mostrar os dados das cartas que você montou, %s!\n", nome);
@@ -96,7 +92,13 @@ int main() {
     printf("Carta 2:\nEstado: %s\nCódigo: %s\nNome da Cidade: %s\nPopulação: %d\nÁrea: %.2f km²\nPIB: %.2f\nPontos Turísticos: %d\nDensidade Populacional: %f\nPIB per Capta: %f\n\n\nPoder Total: %f\n", estado2, codigo2, cidade2, populacao2, tamanho2, pib2, turismo2, densidade2, pib_per_capta2, poder_total2);
 
     //resultado
-    printf("O resultado é: %d", resultado);
+    if (poder_total > poder_total2) {
+        printf("Parabéns, %s! A carta Nº1 venceu o jogo!\n", nome);
+    } else if (poder_total2 > poder_total) {
+        printf("Que pena, %s! A carta Nº2 venceu o jogo!\n", nome);
+    } else {
+        printf("Empate! %s, ambas as cartas empataram o jogo!\n", nome);
+    }
 
     return 0;
 }
