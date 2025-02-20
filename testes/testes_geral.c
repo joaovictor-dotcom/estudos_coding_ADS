@@ -1,36 +1,17 @@
 #include <stdio.h>
 
 int main() {
-
-    float temp, umid;
-    unsigned int estoque;
-
-    //coleta de dados
-    printf("Coloque a temperatura: \n");
-    scanf("%f", &temp);
-    printf("Coloque a umidade: \n");
-    scanf("%f", &umid);
-    printf("Coloque o estoque: \n");
-    scanf("%u", &estoque);
-
-    //verificação de dados
-    if (temp > 30){
-        printf("Temperatura acima do recomendado\n");
+    int idade;
+    printf("Digite a sua idade: \n");
+    scanf("%d", &idade);
+    if (idade < 12){
+        printf("Você é uma criança! \n");
+    } else if (idade >= 12 && idade < 18){
+        printf("Você é um adolescente! \n");
+    } else if ( idade >= 18 && idade < 60){
+        printf("Você é um adulto! \n");
     } else {
-        printf("Temperatura dentro do recomendado\n");
+        printf("Você é um idoso! \n");
     }
-
-    if (umid > 70){
-        printf("Umidade acima do recomendado\n");
-    } else {
-        printf("Umidade dentro do recomendado\n");
-    }
-
-    if (estoque < 100){
-        printf("Estoque abaixo do recomendado\n");
-    } else {
-        printf("Estoque dentro do recomendado\n");
-    }
-    
     return 0;
 }
