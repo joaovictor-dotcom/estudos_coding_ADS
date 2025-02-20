@@ -11,16 +11,16 @@ int main() {
     float tamanho, pib;
 
     printf("Você está começando a jogar Super Trunfo!\n Inicie nos informando seu nome:\n");
-    scanf("%s", nome);
+    scanf("%s", &nome);
     printf("Bem-vindo ao jogo, %s!\n", nome);
     printf("Agora, qual é o Estado da sua carta?\n");
-    scanf("%s", estado);
+    scanf("%s", &estado);
 
     printf("Agora, qual é o código da sua carta?\n");
-    scanf("%s", codigo);
+    scanf("%s", &codigo);
 
     printf("Agora, qual é o nome da sua carta?\n");
-    scanf("%s", cidade);
+    scanf("%s", &cidade);
 
     printf("Agora, qual é a população da sua carta?\n");
     scanf("%d", &populacao);
@@ -43,13 +43,13 @@ int main() {
 
     printf("Concentre-se na segunda carta agora, %s!\n", nome);
     printf("Agora, qual é o Estado da sua carta?\n");
-    scanf("%s", estado2);
+    scanf("%s", &estado2);
 
     printf("Agora, qual é o código da sua carta?\n");
-    scanf("%s", codigo2);
+    scanf("%s", &codigo2);
 
     printf("Agora, qual é o nome da sua carta?\n");
-    scanf("%s", cidade2);
+    scanf("%s", &cidade2);
 
     printf("Agora, qual é a população da sua carta?\n");
     scanf("%d", &populacao2);
