@@ -1,17 +1,30 @@
 #include <stdio.h>
+#include <locale.h>
+#include <stdlib.h>
+#include <time.h>
 
 int main() {
-    int idade;
-    printf("Digite a sua idade: \n");
-    scanf("%d", &idade);
-    if (idade < 12){
-        printf("VocÃª Ã© uma crianÃ§a! \n");
-    } else if (idade >= 12 && idade < 18){
-        printf("VocÃª Ã© um adolescente! \n");
-    } else if ( idade >= 18 && idade < 60){
-        printf("VocÃª Ã© um adulto! \n");
-    } else {
-        printf("VocÃª Ã© um idoso! \n");
+    setlocale(LC_ALL, "Portuguese_Brazil");
+    
+    int valor;
+    printf("Entre com um valor: \n");
+    scanf("%d", &valor);
+
+    switch (valor) {
+    case 1:
+        printf("Pai");
+        break;
+    case 2:
+        printf("Filho");
+        break;
+    case 3:
+    printf("Que é o \n");
+        printf("Espírito Santo");
+        break;
+    default:
+        printf("Não é um valor válido");
+        break;
     }
+
     return 0;
 }
