@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <locale.h>
+#include <stdlib.h>
+#include <time.h>
 
 int main() {
     setlocale(LC_ALL, "Portuguese_Brazil");
@@ -16,7 +18,7 @@ int main() {
     scanf(" %s", estado);
     printf("Agora, qual é o código da sua carta?\n");
     scanf(" %s", codigo);
-    printf("Agora, qual é o nome da sua carta?\n");
+    printf("Agora, qual é o nome da cidade da sua carta?\n");
     scanf(" %s", cidade);
     printf("Agora, qual é a população da sua carta?\n");
     scanf("%d", &populacao);
