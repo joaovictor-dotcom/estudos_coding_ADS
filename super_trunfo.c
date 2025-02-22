@@ -38,25 +38,21 @@ int main() {
     
     printf("Agora que você já criou sua primeira carta, vamos criar a segunda!\n");
     printf("Concentre-se na segunda carta agora, %s!\n", nome);
+    printf("Para que o jogo seja justo, os valores da segunda carta serão randomizados aleatoriamente.\n");
     printf("Agora, qual é o Estado da sua carta?\n");
     scanf(" %s", estado2);
     printf("Agora, qual é o código da sua carta?\n");
     scanf(" %s", codigo2);
-    printf("Agora, qual é o nome da sua carta?\n");
+    printf("Agora, qual é o nome da cidade da sua carta?\n");
     scanf(" %s", cidade2);
     getchar();
-    printf("Agora, qual é a população da sua carta?\n");
-    scanf("%d", &populacao2);
-    getchar();
-    printf("Agora, qual é o tamanho da cidade da sua carta em km²?\n");
-    scanf("%f", &tamanho2);
-    getchar();
-    printf("Agora, qual é o PIB da cidade da sua carta?\n");
-    scanf("%f", &pib2);
-    getchar();
-    printf("Agora, quantos pontos turísticos tem a cidade da sua carta?\n");
-    scanf("%d", &turismo2);
-    getchar();
+    // randomização de valores
+    srand(time(NULL));
+    populacao2 = rand() % 1000000;
+    turismo2 = rand() % 1000000;
+    tamanho2 = rand() % 1000;
+    pib2 = rand() % 1000000;
+    printf("Agora que as duas cartas estão prontas, vamos começar o jogo!\n");
     
     // fim da entrada de dados
     //cálculo densidade populacional
@@ -70,99 +66,119 @@ int main() {
     float pib_per_capta2 = pib2 / populacao2;
     
     //cálculo do poder total
-    float poder_total = (populacao + turismo + pib + densidade + pib_per_capta) / 5;
-    float poder_total2 = (populacao2 + turismo2 + pib2 + densidade2 + pib_per_capta2) / 5;
+    float poder_total = ((populacao + turismo + pib + pib_per_capta) - densidade) / 5;
+    float poder_total2 = ((populacao2 + turismo2 + pib2 + pib_per_capta2) - densidade2) / 5;
     
     
     //resultado do jogo
-    //decisão do atributo que será utilizado
-    int decisao;
+    //decisão do primeiro atributo que será utilizado
+    int primeiroAtributo, resultado1;
     printf("Agora, %s, escolha o atributo que será utilizado para decidir o vencedor do jogo:\n1 - População\n2 - Tamanho\n3 - PIB\n4 - Pontos Turísticos\n5 - Densidade Populacional\n6 - PIB per Capta\n7 - Média Aritmética\n", nome);
-    scanf("%d", &decisao);
+    scanf("%d", &primeiroAtributo);
     getchar();
-    printf("\n\n");
 
-    switch (decisao)
+    switch (primeiroAtributo)
     {
     case 1:
-        if ( (int) populacao > populacao2) {
-            printf("Parabéns, %s! A carta Nº1 venceu o jogo!\n", nome);
-        } else if (populacao2 > populacao) {
-            printf("Que pena, %s! A carta Nº2 venceu o jogo!\n", nome);
-        } else {
-            printf("Empate! %s, ambas as cartas empataram o jogo!\n", nome);
-        }
+        printf("Atributo escolhido: %d\n", primeiroAtributo);
+        resultado1 = populacao > populacao2 ? 1 : 0;
         break;
     case 2:
-        if (tamanho > tamanho2) {
-            printf("Parabéns, %s! A carta Nº1 venceu o jogo!\n", nome);
-        } else if (tamanho2 > tamanho) {
-            printf("Que pena, %s! A carta Nº2 venceu o jogo!\n", nome);
-        } else {
-            printf("Empate! %s, ambas as cartas empataram o jogo!\n", nome);
-        }
+        printf("Atributo escolhido: %d\n", primeiroAtributo);
+        resultado1 = tamanho > tamanho2 ? 1 : 0;
         break;
     case 3:
-        if (pib > pib2) {
-            printf("Parabéns, %s! A carta Nº1 venceu o jogo!\n", nome);
-        } else if (pib2 > pib) {
-            printf("Que pena, %s! A carta Nº2 venceu o jogo!\n", nome);
-        } else {
-            printf("Empate! %s, ambas as cartas empataram o jogo!\n", nome);
-        }
+        printf("Atributo escolhido: %d\n", primeiroAtributo);
+        resultado1 = pib > pib2 ? 1 : 0;
         break;
     case 4:
-        if ((int) turismo > turismo2) {
-            printf("Parabéns, %s! A carta Nº1 venceu o jogo!\n", nome);
-        } else if (turismo2 > turismo) {
-            printf("Que pena, %s! A carta Nº2 venceu o jogo!\n", nome);
-        } else {
-            printf("Empate! %s, ambas as cartas empataram o jogo!\n", nome);
-        }
+        printf("Atributo escolhido: %d\n", primeiroAtributo);
+        resultado1 = turismo > turismo2 ? 1 : 0;
         break;
     case 5:
-        if (densidade < densidade2) {
-            printf("Parabéns, %s! A carta Nº1 venceu o jogo!\n", nome);
-        } else if (densidade2 < densidade) {
-            printf("Que pena, %s! A carta Nº2 venceu o jogo!\n", nome);
-        } else {
-            printf("Empate! %s, ambas as cartas empataram o jogo!\n", nome);
-        }
+        printf("Atributo escolhido: %d\n", primeiroAtributo);
+        resultado1 = densidade < densidade2 ? 1 : 0;
         break;
     case 6:
-        if (pib_per_capta > pib_per_capta2) {
-            printf("Parabéns, %s! A carta Nº1 venceu o jogo!\n", nome);
-        } else if (pib_per_capta2 > pib_per_capta) {
-            printf("Que pena, %s! A carta Nº2 venceu o jogo!\n", nome);
-        } else {
-            printf("Empate! %s, ambas as cartas empataram o jogo!\n", nome);
-        }
+        printf("Atributo escolhido: %d\n", primeiroAtributo);
+        resultado1 = pib_per_capta > pib_per_capta2 ? 1 : 0;
         break;
     case 7:
-        if (poder_total > poder_total2) {
-            printf("Parabéns, %s! A carta Nº1 venceu o jogo!\n", nome);
-        } else if (poder_total2 > poder_total) {
-            printf("Que pena, %s! A carta Nº2 venceu o jogo!\n", nome);
-        } else {
-            printf("Empate! %s, ambas as cartas empataram o jogo!\n", nome);
-        }
+        printf("Atributo escolhido: %d\n", primeiroAtributo);
+        resultado1 = poder_total > poder_total2 ? 1 : 0;
         break;
         
         default:
         printf("Opção inválida! Tente novamente!\n");
         break;
     }
+
+    //decisão do segundo atributo
+
+    printf("Agora vamos decidir o segundo atributo que será utilizado para decidir o vencedor do jogo:\n1 - População\n2 - Tamanho\n3 - PIB\n4 - Pontos Turísticos\n5 - Densidade Populacional\n6 - PIB per Capta\n7 - Média Aritmética\n");
+    int segundoAtributo, resultado2;
+    scanf("%d", &segundoAtributo);
+    getchar();
+    if (segundoAtributo == primeiroAtributo) {
+        printf("Você escolheu o mesmo atributo que o anterior! Tente novamente!\n");
+    } else {
+        switch (primeiroAtributo)
+        {
+        case 1:
+            printf("Atributo escolhido: %d\n", segundoAtributo);
+            resultado2 = populacao > populacao2 ? 1 : 0;
+            break;
+        case 2:
+            printf("Atributo escolhido: %d\n", segundoAtributo);
+            resultado2 = tamanho > tamanho2 ? 1 : 0;
+            break;
+        case 3:
+            printf("Atributo escolhido: %d\n", segundoAtributo);
+            resultado2 = pib > pib2 ? 1 : 0;
+            break;
+        case 4:
+            printf("Atributo escolhido: %d\n", segundoAtributo);
+            resultado2 = turismo > turismo2 ? 1 : 0;
+            break;
+        case 5:
+            printf("Atributo escolhido: %d\n", segundoAtributo);
+            resultado2 = densidade < densidade2 ? 1 : 0;
+            break;
+        case 6:
+            printf("Atributo escolhido: %d\n", segundoAtributo);
+            resultado2 = pib_per_capta > pib_per_capta2 ? 1 : 0;
+            break;
+        case 7:
+            printf("Atributo escolhido: %d\n", segundoAtributo);
+            resultado2 = poder_total > poder_total2 ? 1 : 0;
+            break;
+            
+            default:
+            printf("Opção inválida! Tente novamente!\n");
+            break;
+        }
+    }
     
     //fim do tempo de decisão
 
+    //resultado do jogo
+    if (resultado1 == 1 && resultado2 == 1) {
+        printf("Parabéns, %s! Você venceu o jogo!\n", nome);
+    } else if (resultado1 == 0 && resultado2 == 0) {
+        printf("Que pena, %s! Você perdeu o jogo!\n", nome);
+    } else {
+        printf("Empate! Vamos jogar novamente!\n");
+    }
+    
+
     
     // impressão das cartas
-    printf("Agora eu vou mostrar os dados das cartas que você montou, %s!\n", nome);
+    printf("\nAgora eu vou mostrar os dados das cartas que você montou, %s!\n", nome);
     // CARTA 1 ---------------------------------------------------------------------------------------
-    printf("Carta 1:\nEstado: %s\nCódigo: %s\nNome da Cidade: %s\nPopulação: %d\nÁrea: %.2f km²\nPIB: %.2f\nPontos Turísticos: %d\nDensidade Populacional: %f\nPIB per Capta: %f\n\n\nPoder Total: %f", estado, codigo, cidade, populacao, tamanho, pib, turismo, densidade, pib_per_capta, poder_total);
+    printf("Carta 1:\nEstado: %s\nCódigo: %s\nNome da Cidade: %s\nPopulação: %d\nÁrea: %.2f km²\nPIB: %.2f\nPontos Turísticos: %d\nDensidade Populacional: %f\nPIB per Capta: %f\nPoder Total: %f\n\n", estado, codigo, cidade, populacao, tamanho, pib, turismo, densidade, pib_per_capta, poder_total);
     
     // CARTA 2 ---------------------------------------------------------------------------------------
-    printf("Carta 2:\nEstado: %s\nCódigo: %s\nNome da Cidade: %s\nPopulação: %d\nÁrea: %.2f km²\nPIB: %.2f\nPontos Turísticos: %d\nDensidade Populacional: %f\nPIB per Capta: %f\n\n\nPoder Total: %f\n", estado2, codigo2, cidade2, populacao2, tamanho2, pib2, turismo2, densidade2, pib_per_capta2, poder_total2);
+    printf("Carta 2:\nEstado: %s\nCódigo: %s\nNome da Cidade: %s\nPopulação: %d\nÁrea: %.2f km²\nPIB: %.2f\nPontos Turísticos: %d\nDensidade Populacional: %f\nPIB per Capta: %f\nPoder Total: %f\n\n", estado2, codigo2, cidade2, populacao2, tamanho2, pib2, turismo2, densidade2, pib_per_capta2, poder_total2);
     
     
     return 0;
