@@ -1,16 +1,14 @@
 #include <stdio.h>
 
 int main() {
-
-    printf("Digite um valor: ");
-    int valor;
-    valor = 0;
-
-    while (valor <= 10)
+    int a;
+    for (a = 1; a <= 2; a++)
     {
-        printf("\n%d", valor);
-        valor++;
+        printf("%d\n", a);
     }
-
+    printf("%d\n", a);
+    printf("%d\n", a);
+    scanf("%d", &a);
+    printf("%d\n", a);
     return 0;
 }
