@@ -6,17 +6,19 @@
 int main() {
     setlocale(LC_ALL, "Portuguese_Brazil");
 
-    int i, j;
+    int num;
+    printf("Digite um número para descobrir se ele é primo: ");
+    scanf("%d", &num);
 
-    for ( i = 1 ; i <= 10; i++)
-    {
-        for ( j = 1 ; j <= i ; j++)
-        {
-            printf("! ");
+    for (int i = 0; i < num; i++) {
+        if (num % i == 0) {
+            printf("O número %d não é primo.\n", num);
+            break;
+        } else {
+            printf("O número %d é primo.\n", num);
+            break;
         }
-        printf("\n");
     }
     
-
     return 0;
 }
