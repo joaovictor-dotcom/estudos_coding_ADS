@@ -79,12 +79,6 @@ int main() {
     scanf("%d", &primeiroAtributo);
     getchar();
 
-    printf("população", poder_total2);
-    printf("população", poder_total2);
-    printf("população", poder_total2);
-    printf("população", poder_total2);
-    printf("população", poder_total2);
-    printf("população", poder_total2);
     
     switch (primeiroAtributo)
     {
